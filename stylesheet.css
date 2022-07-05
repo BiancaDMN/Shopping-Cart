@@ -1,0 +1,166 @@
+html {
+    width: 100%;
+    height: 100%;
+    font-family: 'Sarala', sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Sarala', sans-serif;
+    background-color: rgb(236, 233, 233);
+}
+
+h1 {
+    padding-left: 15px;
+    padding-top: 15px;
+    margin-left: 50px;
+}
+
+#checkoutHr {
+    margin-left: 70px;
+    color: #267cc2;
+    border: 3px solid #267cc2;
+    opacity: 1;
+    top: 60px;
+    width: 70px;
+}
+
+#productsContainer {
+    margin: 3px;
+    top: 100px;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    gap: 30px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 35px;
+    width: 850px;
+    margin-left: 25px;
+}
+
+#program {
+    background-color: white;
+    border-radius: 5px;
+    padding: 15px;
+    width: 800px;
+    height: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 35px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+#programPrice {
+    right: 70px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: blue;
+    font-weight: bold;
+}
+
+#programPrice::before {
+    content: 'Price: ';
+    color: black;
+}
+
+.btn {
+    background-color: rgb(28, 160, 28);
+    border-color: rgb(28, 160, 28);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+#addButton {
+    padding: 1rem 4rem;
+}
+
+.cartContainer {
+    width: 600px;
+    height: auto;
+    padding: 30px;
+    position: relative;
+    background-color: lightgray;
+    border: 1px grey solid;
+    border-radius: 5px;
+}
+
+#cartColumn {
+    display: flex;
+    justify-content: space-between;
+    gap: 200px;
+    font-weight: normal;
+}
+
+#productColumn {
+    font-weight: normal;
+}
+
+#QuantityValueColumn {
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    font-weight: normal;
+}
+.cartRow {
+    display: flex;
+    justify-content: space-between;
+    gap: 110px;
+    height: 80px;
+    width: 180px;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+#productName {
+    width: 150px;
+}
+
+#productQuantity {
+    display: flex;
+    flex-direction: row;
+    gap: 125px;
+}
+
+.quantityInput {
+    width: 40px;
+}
+
+.productPrice {
+    display: flex;
+    gap: 25px;
+}
+
+#removeButton {
+    font-size: 10px;
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    background-color: #dc3545;
+    border-color: #dc3545;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+#totalCart{
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    text-align: right;
+    gap: 30px;
+}
+
+#continue{
+    width: 100%;
+    height: 60px;
+}
