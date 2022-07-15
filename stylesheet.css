@@ -120,8 +120,37 @@ h1 {
     font-size: 17px;
 }
 
+#productElement {
+    display: flex;
+}
+
 #productName {
     width: 150px;
+}
+
+#informationPopUp{
+    position: relative;
+    display: inline-block;
+}
+
+#informationPopUp #descriptionPopUp{
+    visibility: hidden;
+    width: 150px;
+    height: 110px;
+    background-color: whitesmoke;
+    text-align:justify;
+    font-size: 11px;
+    border-radius: 6px;
+    padding: 5px 5px;
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 105%;
+    font-weight: normal;
+}
+
+#informationPopUp:hover #descriptionPopUp{
+    visibility: visible;
 }
 
 #productQuantity {
