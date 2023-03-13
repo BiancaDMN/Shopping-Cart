@@ -1,68 +1,50 @@
-html {
-    width: 100%;
-    height: 100%;
-    font-family: 'Sarala', sans-serif;
-}
-
-body {
-    width: 100%;
-    height: 100%;
-    font-family: 'Sarala', sans-serif;
+body{
     background-color: rgb(236, 233, 233);
+    margin: 20px;
 }
 
-h1 {
-    padding-left: 15px;
-    padding-top: 15px;
-    margin-left: 50px;
+h1{
+    position: relative;
+    padding: 10px;
 }
 
-#checkoutHr {
-    margin-left: 70px;
-    color: #267cc2;
-    border: 3px solid #267cc2;
-    opacity: 1;
-    top: 60px;
-    width: 70px;
-}
-
-#productsContainer {
-    margin: 3px;
-    top: 100px;
+h1::before{
+    content: '';
     position: absolute;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row-reverse;
-    gap: 30px;
+    bottom: 0px;
+    left: 0;
+    border-bottom: 5px solid #267cc2;
+    width: 5%;
+    margin-left: 10px;
 }
 
-.container {
+#mainContainer{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+#products{
     display: flex;
     flex-direction: column;
-    position: relative;
-    gap: 35px;
-    width: 850px;
-    margin-left: 25px;
+    gap: 20px;
+    width: 50%;
 }
 
-#program {
+#program{
     background-color: white;
     border-radius: 5px;
-    padding: 15px;
-    width: 800px;
-    height: 120px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap: 35px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    padding: 20px;
 }
 
-#programPrice {
-    right: 70px;
-    padding: 5px;
+#programPrice{
     display: flex;
-    align-items: center;
     gap: 20px;
     color: blue;
     font-weight: bold;
@@ -73,79 +55,50 @@ h1 {
     color: black;
 }
 
-.btn {
+#addButton{
+    padding: 10px;
     background-color: rgb(28, 160, 28);
     border-color: rgb(28, 160, 28);
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
-#addButton {
-    padding: 1rem 4rem;
-}
-
-.cartContainer {
-    width: 600px;
-    height: auto;
-    padding: 30px;
-    position: relative;
-    background-color: lightgray;
+.cart{
+    background-color: lightgrey;
     border: 1px grey solid;
     border-radius: 5px;
+    padding: 20px;
+    width: 50%;
 }
 
-#cartColumn {
+table{
+    width: 100%;
+}
+
+tr{
     display: flex;
-    justify-content: space-between;
-    gap: 200px;
-    font-weight: normal;
+    justify-content: space-around;
 }
 
-#productColumn {
-    font-weight: normal;
-}
-
-#QuantityValueColumn {
+#productElement{
     display: flex;
     flex-direction: row;
-    gap: 100px;
-    font-weight: normal;
-}
-.cartRow {
-    display: flex;
-    justify-content: space-between;
-    gap: 110px;
-    height: 80px;
-    width: 180px;
-    font-weight: bold;
-    font-size: 17px;
-}
-
-#productElement {
-    display: flex;
-}
-
-#productName {
-    width: 150px;
+    justify-content: center;
+    gap: 5px;
+    width: 40%;
 }
 
 #informationPopUp{
-    position: relative;
     display: inline-block;
 }
 
 #informationPopUp #descriptionPopUp{
     visibility: hidden;
-    width: 150px;
-    height: 110px;
     background-color: whitesmoke;
-    text-align:justify;
-    font-size: 11px;
+    text-align: justify;
     border-radius: 6px;
     padding: 5px 5px;
     position: absolute;
     z-index: 1;
-    top: -5px;
-    left: 105%;
     font-weight: normal;
 }
 
@@ -153,43 +106,138 @@ h1 {
     visibility: visible;
 }
 
-#productQuantity {
+#quantityElement{
+    width: 30%;
     display: flex;
-    flex-direction: row;
-    gap: 125px;
+    justify-content: center;
 }
 
-.quantityInput {
-    width: 40px;
+.quantityInput{
+    width: 50px;
 }
 
-.productPrice {
+#priceElement{
     display: flex;
-    gap: 25px;
+    justify-content: center;
+    gap: 10px;
+    width: 30%;
 }
 
 #removeButton {
-    font-size: 10px;
     text-align: center;
-    width: 20px;
-    height: 20px;
+    border-radius: 50%;
     background-color: #dc3545;
     border-color: #dc3545;
-    border-radius: 10px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
-#totalCart{
-    font-size: 20px;
+#cartTotal{
     font-weight: bold;
     display: flex;
     flex-direction: column;
     padding: 10px;
     text-align: right;
-    gap: 30px;
+    right: 10px;
+    margin-top: 10px;
 }
 
 #continue{
-    width: 100%;
-    height: 60px;
+    margin-top: 10px;
+    background-color: rgb(28, 160, 28);
+    border-color: rgb(28, 160, 28);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+@media only screen and (min-width: 300px) and (max-width: 600px){
+
+    h1::before{
+        width: 10%;
+    }
+
+    #mainContainer{
+        flex-direction: column-reverse;
+        padding-top: 5px;
+        padding-right: 20px;
+    }
+
+    #products{
+        width: 100%;
+    }
+
+    #program{
+        display: grid;
+        gap: 10px;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto;
+        justify-content: space-around;
+    }
+
+    h4{
+        font-size: 16px;
+        margin-bottom: 0;
+    }
+
+    #programPrice{
+        font-size: 16px;
+    }
+
+    #addButton{
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    .cart{
+        width: 100%;
+    }
+
+    #removeButton{
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1000px){
+
+    #program{
+        display: grid;
+        gap: 10px;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto;
+        justify-content: space-around;
+    }
+
+    #addButton{
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+  
+    #removeButton{
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
+    }
+}
+
+@media only screen and (min-width: 1001px) and (max-width: 1200px){
+    
+    #removeButton{
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
+    }
+}
+
+@media only screen and (min-width: 1201px){
+
+    #addButton{
+        width: 180px;
+        height: 50px;
+    }
+
+    #removeButton{
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
+    }
 }

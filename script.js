@@ -1,9 +1,9 @@
-const productsContainer = document.getElementById('productsContainer');
+const mainContainer = document.getElementById('mainContainer');
 
-const container = document.createElement('div');
-container.setAttribute('class', 'container');
+const products = document.createElement('div');
+products.setAttribute('id', 'products');
 
-productsContainer.appendChild(container);
+mainContainer.appendChild(products);
 
 var request = new XMLHttpRequest();
 
@@ -21,7 +21,6 @@ request.onload = function () {
             program.setAttribute('id', 'program');
     
             const programName = document.createElement('h4');
-            programName.setAttribute('id', 'programName');
             programName.textContent = product.name;
     
             const programPrice = document.createElement('div');
@@ -42,7 +41,7 @@ request.onload = function () {
             <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
             </svg> Add to cart`;
     
-            container.appendChild(program);
+            products.appendChild(program);
             program.appendChild(programName);
             program.appendChild(programPrice);
             program.appendChild(addButton);
@@ -64,30 +63,34 @@ function addToCart (product, parentElement) {
     
     parentElement.remove();
   
-    var cartTitle = document.getElementById('cartTitle');
-    cartTitle.innerHTML = `<h3>Products in your shopping cart</h3>
+    var cartHeader = document.getElementById('cartHeader');
+    cartHeader.innerHTML = `<h3>Products in your shopping cart</h3>
     <br>
     <table>
       <thead>
-            <tr id = 'cartColumn'>
-                <th id="productColumn">
-                    <div>Product</div>
-                </th>
-                <th id="QuantityValueColumn">
-                    <div>Quantity</div>
-                    <div>Value</div>
-                </th>
-            </tr>
+          <tr>
+            <th>
+              <div>Product</div>
+            </th>
+            <th>
+              <div>Quantity</div>
+            </th>
+            <th>
+              <div>Value</div>
+            </th>
+          </tr>
         </thead>
       </table>
       <hr>`;
 
-    var cartContainer = document.getElementsByClassName('cartContainer')[0];
+    var cart = document.getElementsByClassName('cart')[0];
+
+      const table = document.createElement('table');
   
       const tbody = document.createElement('tbody');
   
-      const cartRow = document.createElement('tr');
-      cartRow.setAttribute('class', 'cartRow');
+      const cartMainContent = document.createElement('tr');
+      cartMainContent.setAttribute('class', 'cartMainContent');
   
       const productElement = document.createElement('td');
       productElement.setAttribute('id', 'productElement');
@@ -103,12 +106,11 @@ function addToCart (product, parentElement) {
       const descriptionPopUp = document.createElement('span');
       descriptionPopUp.setAttribute('id', 'descriptionPopUp');
       descriptionPopUp.textContent = product.description;
-  
-      const quantity = document.createElement('td');
-      quantity.setAttribute('id', 'quantity');
+
+      const quantityElement = document.createElement('td');
+      quantityElement.setAttribute('id', 'quantityElement');
   
       const productQuantity = document.createElement('div');
-      productQuantity.setAttribute('id', 'productQuantity');
   
       const quantityInput = document.createElement('input');
       quantityInput.setAttribute('class', 'quantityInput');
@@ -116,6 +118,9 @@ function addToCart (product, parentElement) {
       quantityInput.setAttribute('value', '1');
       quantityInput.setAttribute('min', '1');
       quantityInput.addEventListener('change', quantityChanged);
+
+      const priceElement = document.createElement('td');
+      priceElement.setAttribute('id', 'priceElement');
   
       const productPrice = document.createElement('div');
       productPrice.setAttribute('class', 'productPrice');
@@ -126,20 +131,22 @@ function addToCart (product, parentElement) {
       removeButton.setAttribute('id', 'removeButton');
       removeButton.textContent = `X`;
       removeButton.addEventListener('click', (e) => {
-        removeFromCart(product, cartRow);
+        removeFromCart(product, cartMainContent);
       })
   
-      cartContainer.appendChild(tbody);
-      tbody.appendChild(cartRow);
-      cartRow.appendChild(productElement);
+      cart.appendChild(table);
+      table.appendChild(tbody);
+      tbody.appendChild(cartMainContent);
+      cartMainContent.appendChild(productElement);
       productElement.appendChild(productName);
       productElement.appendChild(informationPopUp);
       informationPopUp.appendChild(descriptionPopUp);
-      cartRow.appendChild(quantity);
-      quantity.appendChild(productQuantity);
+      cartMainContent.appendChild(quantityElement);
+      quantityElement.appendChild(productQuantity);
       productQuantity.appendChild(quantityInput);
-      productQuantity.appendChild(productPrice);
-      productPrice.appendChild(removeButton);
+      cartMainContent.appendChild(priceElement);
+      priceElement.appendChild(productPrice);
+      priceElement.appendChild(removeButton);
   
     updateCartTotal();
   }
@@ -148,13 +155,12 @@ function addToCart (product, parentElement) {
   
     parentElement.remove();
     
-    var container = document.getElementsByClassName('container')[0];
+    var products = document.getElementById('products');
     
     const program = document.createElement('div');
     program.setAttribute('id', 'program');
   
     const programName = document.createElement('h4');
-    programName.setAttribute('id', 'programName');
     programName.textContent = product.name;
   
     const programPrice = document.createElement('div');
@@ -175,7 +181,7 @@ function addToCart (product, parentElement) {
     <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
     </svg> Add to cart`;
   
-    container.appendChild(program);
+    products.appendChild(program);
     program.appendChild(programName);
     program.appendChild(programPrice);
     program.appendChild(addButton);
@@ -185,19 +191,19 @@ function addToCart (product, parentElement) {
     
     if (removeFromCart){
     
-        var cartContainer = document.getElementsByClassName('cartContainer') [0];
+        var cart = document.getElementsByClassName('cart')[0];
     
-        var cartRow = document.getElementsByClassName('cartRow');
+        var cartMainContent = document.getElementsByClassName('cartMainContent');
     
         var total = 0;
       
-        for ( var total = 0; total = cartRow.length; i++){
+        for ( var total = 0; total = cartMainContent.length; i++){
     
-          var cartRows = cartRow [total];
+          var cartContent = cartMainContent [total];
     
-          var priceElement = cartRows.getElementsByClassName('productPrice')[0];
-          var quantityElement = cartRows.getElementsByClassName('quantityInput')[0];
-          var price = parseFloat(priceElement.innerText.replace('$', ''));
+          var productPrice = cartContent.getElementsByClassName('productPrice')[0];
+          var quantityElement = cartContent.getElementsByClassName('quantityInput')[0];
+          var price = parseFloat(productPrice.innerText.replace('$', ''));
           var quantityValue = quantityElement.value;
           total = total + (price * quantityValue);
     
@@ -205,15 +211,15 @@ function addToCart (product, parentElement) {
 
         total = Math.round(total * 100) / 100;
         
-        var updateCartTitle = document.getElementById('cartTitle');
-        updateCartTitle.innerHTML = `<h3>No products in your shopping cart</h3>`;
+        var updateCartHeader = document.getElementById('cartHeader');
+        updateCartHeader.innerHTML = `<h3>No products in your shopping cart</h3>`;
     
-        var updateTotalCart = document.getElementById('totalCart');
+        var updateTotalCart = document.getElementById('cartTotal');
         updateTotalCart.textContent = '';
         updateTotalCart.style.border = 'none';
       
-        cartContainer.appendChild(updateCartTitle);
-        cartContainer.appendChild(updateTotalCart);
+        cart.appendChild(updateCartHeader);
+        cart.appendChild(updateCartHeader);
       
       }
     
@@ -245,19 +251,19 @@ function addToCart (product, parentElement) {
   
       if(addToCart){
     
-      var cartContainer = document.getElementsByClassName('cartContainer')[0];
+      var cart = document.getElementsByClassName('cart')[0];
     
-      var cartRow = document.getElementsByClassName('cartRow');
+      var cartMainContent = document.getElementsByClassName('cartMainContent');
     
       var total = 0;
     
-      for ( var i = 0; i < cartRow.length; i++){
+      for ( var i = 0; i < cartMainContent.length; i++){
     
-        var cartRows = cartRow [i];
+        var cartContent = cartMainContent [i];
     
-        var priceElement = cartRows.getElementsByClassName('productPrice')[0];
-        var quantityElement = cartRows.getElementsByClassName('quantityInput')[0];
-        var price = parseFloat(priceElement.innerText.replace('$', ''));
+        var productPrice = cartContent.getElementsByClassName('productPrice')[0];
+        var quantityElement = cartContent.getElementsByClassName('quantityInput')[0];
+        var price = parseFloat(productPrice.innerText.replace('$', ''));
         var quantityValue = quantityElement.value;
         total = total + (price * quantityValue);
     
@@ -265,9 +271,9 @@ function addToCart (product, parentElement) {
         
       total = Math.round(total * 100) / 100;
     
-      const totalCart = document.getElementById('totalCart');
-      totalCart.style.borderTop = `solid black 3px`;
-      totalCart.textContent = `Total: $` + total;
+      const cartTotal = document.getElementById('cartTotal');
+      cartTotal.style.borderTop = `solid black 3px`;
+      cartTotal.textContent = `Total: $` + total;
     
     
       const continueButton = document.createElement('button');
@@ -275,13 +281,13 @@ function addToCart (product, parentElement) {
       continueButton.setAttribute('id', 'continue');
       continueButton.textContent = `Continue` ;
     
-      //const emptyTotalButton = document.createElement('button')
-      //emptyTotalButton.setAttribute('class', 'btn btn-success btn-cont')
-      //emptyTotalButton.textContent = `Empty`
-      //totalShoppingCart.appendChild(emptyTotalButton)
+      // const emptyTotalButton = document.createElement('button')
+      // emptyTotalButton.setAttribute('class', 'btn btn-success btn-cont')
+      // emptyTotalButton.textContent = `Empty`
+      // cartTotal.appendChild(emptyTotalButton)
       
-      cartContainer.appendChild(totalCart);
-      totalCart.appendChild(continueButton);
+      cart.appendChild(cartTotal);
+      cartTotal.appendChild(continueButton);
     
       }
      
